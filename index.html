@@ -4,20 +4,8 @@
   <meta charset="utf-8" />
   <meta http-equiv="refresh" content="0; url=/admin/" />
   <title>台大新聞所 CMS</title>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
   <p>正在跳轉至<a href="/admin/">管理介面</a>...</p>
-  <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", function(user) {
-        if (!user) {
-          window.netlifyIdentity.on("login", function() {
-            document.location.href = "/admin/";
-          });
-        }
-      });
-    }
-  </script>
 </body>
 </html>
