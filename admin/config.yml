@@ -1,0 +1,336 @@
+local_backend: true
+
+backend:
+  name: github
+  repo: ntujour/decap-cms
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+locale: zh_Hant
+
+collections:
+  # ──────────────────────────────────────
+  # 師資 Faculty
+  # ──────────────────────────────────────
+  - name: "faculty"
+    label: "師資"
+    folder: "content/faculty"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: "name"
+    sortable_fields: ["name", "category", "order"]
+    fields:
+      - label: "ID"
+        name: "id"
+        widget: "string"
+
+      - label: "姓名"
+        name: "name"
+        widget: "string"
+
+      - label: "職稱"
+        name: "title"
+        widget: "string"
+
+      - label: "類別"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "專任", value: "專任" }
+          - { label: "兼任", value: "兼任" }
+          - { label: "合聘", value: "合聘" }
+          - { label: "實務", value: "實務" }
+          - { label: "退休", value: "退休" }
+          - { label: "榮譽", value: "榮譽" }
+
+      - label: "排序"
+        name: "order"
+        widget: "number"
+        value_type: "int"
+        required: false
+
+      - label: "照片"
+        name: "photo"
+        widget: "image"
+        media_folder: "/images/faculty"
+        required: false
+
+      - label: "聯絡電話"
+        name: "phone"
+        widget: "string"
+        required: false
+
+      - label: "電子信箱"
+        name: "email"
+        widget: "string"
+        required: false
+
+      - label: "辦公室"
+        name: "office"
+        widget: "string"
+        required: false
+
+      - label: "個人網站"
+        name: "website"
+        widget: "string"
+        required: false
+
+      - label: "授課科目"
+        name: "expertise"
+        widget: "markdown"
+        required: false
+
+      - label: "研究專長"
+        name: "research"
+        widget: "markdown"
+        required: false
+
+      - label: "經歷"
+        name: "experience"
+        widget: "markdown"
+        required: false
+
+      - label: "學歷"
+        name: "education"
+        widget: "markdown"
+        required: false
+
+      - label: "簡介"
+        name: "bio"
+        widget: "markdown"
+        required: false
+
+      - label: "個人介紹"
+        name: "body"
+        widget: "markdown"
+        required: false
+
+  # ──────────────────────────────────────
+  # 學生發表 Publications
+  # ──────────────────────────────────────
+  - name: "publications"
+    label: "學生發表"
+    folder: "content/publications"
+    create: true
+    slug: "{{year}}-{{month}}-{{slug}}"
+    sortable_fields: ["title", "date", "category"]
+    fields:
+      - label: "標題"
+        name: "title"
+        widget: "string"
+
+      - label: "發表日期"
+        name: "date"
+        widget: "datetime"
+
+      - label: "截止日期"
+        name: "expiration_date"
+        widget: "datetime"
+        date_format: "YYYY-MM-DD"
+        required: false
+
+      - label: "類別"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "期刊論文", value: "期刊論文" }
+          - { label: "研討會論文", value: "研討會論文" }
+          - { label: "學位論文", value: "學位論文" }
+          - { label: "其他", value: "其他" }
+
+      - label: "封面圖片"
+        name: "image"
+        widget: "image"
+        media_folder: "/images/publications"
+        required: false
+
+      - label: "摘要或說明"
+        name: "body"
+        widget: "markdown"
+        required: false
+
+  # ──────────────────────────────────────
+  # 最新消息 News
+  # ──────────────────────────────────────
+  - name: "news"
+    label: "最新消息"
+    folder: "content/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    sortable_fields: ["title", "date", "category"]
+    fields:
+      - label: "標題"
+        name: "title"
+        widget: "string"
+
+      - label: "發佈時間"
+        name: "date"
+        widget: "datetime"
+
+      - label: "類別"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "學術", value: "學術" }
+          - { label: "榮譽", value: "榮譽" }
+          - { label: "招生", value: "招生" }
+          - { label: "徵才", value: "徵才" }
+          - { label: "其他", value: "其他" }
+
+      - label: "精選"
+        name: "featured"
+        widget: "boolean"
+        default: false
+        required: false
+
+      - label: "封面圖片"
+        name: "image"
+        widget: "image"
+        media_folder: "/images/news"
+        required: false
+
+      - label: "內容"
+        name: "body"
+        widget: "markdown"
+
+  # ──────────────────────────────────────
+  # 活動 Activities
+  # ──────────────────────────────────────
+  - name: "activities"
+    label: "活動"
+    folder: "content/activities"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    sortable_fields: ["title", "date", "category"]
+    fields:
+      - label: "活動名稱"
+        name: "title"
+        widget: "string"
+
+      - label: "發佈時間"
+        name: "date"
+        widget: "datetime"
+
+      - label: "類別"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "講座", value: "講座" }
+          - { label: "工作坊", value: "工作坊" }
+          - { label: "研討會", value: "研討會" }
+          - { label: "成果發表", value: "成果發表" }
+          - { label: "其他", value: "其他" }
+
+      - label: "時間說明"
+        name: "time"
+        widget: "string"
+        required: false
+
+      - label: "活動地點"
+        name: "location"
+        widget: "string"
+        required: false
+
+      - label: "精選"
+        name: "featured"
+        widget: "boolean"
+        default: false
+        required: false
+
+      - label: "活動圖片"
+        name: "image"
+        widget: "image"
+        media_folder: "/images/activities"
+        required: false
+
+      - label: "活動內容"
+        name: "body"
+        widget: "markdown"
+
+  # ──────────────────────────────────────
+  # 網站設定 Site Settings (JSON files)
+  # ──────────────────────────────────────
+  - name: "settings"
+    label: "網站設定"
+    files:
+      - name: "banner"
+        label: "橫幅設定"
+        file: "data/banner.json"
+        fields:
+          - label: "標題"
+            name: "title"
+            widget: "string"
+          - label: "副標題"
+            name: "subtitle"
+            widget: "string"
+          - label: "Logo"
+            name: "logo"
+            widget: "image"
+            required: false
+
+      - name: "intro"
+        label: "系所簡介"
+        file: "data/intro.json"
+        fields:
+          - label: "標題"
+            name: "title"
+            widget: "string"
+          - label: "內容"
+            name: "body"
+            widget: "text"
+
+      - name: "site_settings"
+        label: "網站資訊"
+        file: "data/site_settings.json"
+        fields:
+          - label: "網站名稱"
+            name: "site_name"
+            widget: "string"
+          - label: "電話"
+            name: "phone"
+            widget: "string"
+          - label: "Email"
+            name: "email"
+            widget: "string"
+          - label: "地址"
+            name: "address"
+            widget: "string"
+          - label: "Facebook"
+            name: "facebook"
+            widget: "string"
+            required: false
+          - label: "Instagram"
+            name: "instagram"
+            widget: "string"
+            required: false
+          - label: "辦公時間"
+            name: "office_hours"
+            widget: "string"
+
+      - name: "navigation"
+        label: "導覽列"
+        file: "data/navigation.json"
+        fields:
+          - label: "選單項目"
+            name: "items"
+            widget: "list"
+            fields:
+              - label: "名稱"
+                name: "label"
+                widget: "string"
+              - label: "網址"
+                name: "url"
+                widget: "string"
+              - label: "子選單"
+                name: "children"
+                widget: "list"
+                required: false
+                fields:
+                  - label: "名稱"
+                    name: "label"
+                    widget: "string"
+                  - label: "網址"
+                    name: "url"
+                    widget: "string"

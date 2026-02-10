@@ -1,0 +1,82 @@
+{
+  "items": [
+    {
+      "label": "首頁",
+      "url": "/index.html",
+      "children": []
+    },
+    {
+      "label": "關於我們",
+      "url": "/about/intro.html",
+      "children": [
+        {
+          "label": "所長的話",
+          "url": "/about/intro.html"
+        },
+        {
+          "label": "宗旨與目標",
+          "url": "/about/mission.html"
+        },
+        {
+          "label": "交通資訊",
+          "url": "/about/transportation.html"
+        },
+        {
+          "label": "所史與回顧",
+          "url": "/about/gallery.html"
+        }
+      ]
+    },
+    {
+      "label": "師資介紹",
+      "url": "/faculty/faculty.html",
+      "children": [
+        {
+          "label": "師資總覽",
+          "url": "/faculty/faculty.html"
+        },
+        {
+          "label": "專任教師",
+          "url": "/faculty/fulltime-professor.html"
+        },
+        {
+          "label": "實務教師",
+          "url": "/faculty/practical-professor.html"
+        },
+        {
+          "label": "兼任教師",
+          "url": "/faculty/parttime-professor.html"
+        }
+      ]
+    },
+    {
+      "label": "入學資訊",
+      "url": "/admissions/admissions.html",
+      "children": [
+        {
+          "label": "招生資訊",
+          "url": "/admissions/admissions.html"
+        },
+        {
+          "label": "入學考古題",
+          "url": "/admissions/past-exam.html"
+        }
+      ]
+    },
+    {
+      "label": "學生學習",
+      "url": "/students/curriculum.html",
+      "children": []
+    },
+    {
+      "label": "最新消息",
+      "url": "/news.html",
+      "children": []
+    },
+    {
+      "label": "系所活動",
+      "url": "/activities.html",
+      "children": []
+    }
+  ]
+}
