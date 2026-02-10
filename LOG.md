@@ -13,6 +13,20 @@
 - [23:30] 批次更新 MD 檔中圖片路徑 /static/images/ → /images/
 - [23:30] 啟用 local_backend: true 供本地測試
 
-## 2026-02-10
+- [23:35] 移除所有中英文欄位區分（name_en、title_en、body_en、lang 等）
+- [23:35] Faculty：experience/education 從 list-of-objects 轉為純文字欄位
+- [23:35] News/Activities：移除 title_en、body_en、lang 欄位（67 個檔案）
+- [23:35] JSON 設定檔合併中英文欄位（banner、site_settings、navigation）
+- [23:40] Faculty：授課科目、研究專長、經歷、學歷、簡介改為 markdown widget
+- [23:40] Faculty：排序欄位移至類別下方
 
-- [--:--] Transformed all 29 faculty markdown files: converted experience/education from list-of-objects (zh/en) to plain text block scalars (zh only), removed name_en and title_en fields. Script: transform_faculty.py
+## 2026-02-11
+
+- [00:00] 部署至 GitHub：建立 ntujour/decap-cms repo 並 push
+- [00:00] 啟用 GitHub Pages
+- [00:10] 改用 Netlify 部署（GitHub OAuth 需要 Netlify 作為 OAuth proxy）
+- [00:10] 設定 GitHub OAuth App（callback URL: api.netlify.com/auth/done）
+- [00:10] 設定 Netlify OAuth provider（GitHub Client ID + Secret）
+- [00:20] CMS 上線測試成功，可透過 GitHub 帳號登入
+- [00:20] 建立 README.md（部署設定、OAuth 設定、使用者管理文件）
+- [00:25] 更新 CLAUDE.md 與 LOG.md
