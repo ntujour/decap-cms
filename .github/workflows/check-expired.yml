@@ -1,0 +1,54 @@
+name: Check expired content
+
+on:
+  schedule:
+    # 每天台灣時間早上 8 點（UTC 0:00）執行
+    - cron: '0 0 * * *'
+  workflow_dispatch: # 也可手動觸發
+
+jobs:
+  check-expired:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Mark expired content
+        run: |
+          today=$(date -u +%Y-%m-%d)
+          changed=false
+
+          for file in content/news/*.md content/activities/*.md content/publications/*.md; do
+            [ -f "$file" ] || continue
+
+            # 讀取 unpublish_date（格式：YYYY-MM-DD）
+            unpublish_date=$(grep -m1 '^unpublish_date:' "$file" | sed 's/unpublish_date: *//' | tr -d '"' | tr -d "'" | xargs)
+            [ -z "$unpublish_date" ] && continue
+
+            # 讀取目前 expired 狀態
+            current_expired=$(grep -m1 '^expired:' "$file" | sed 's/expired: *//' | xargs)
+
+            # 如果已過期且尚未標記
+            if [ "$unpublish_date" \< "$today" ] || [ "$unpublish_date" = "$today" ]; then
+              if [ "$current_expired" != "true" ]; then
+                if grep -q '^expired:' "$file"; then
+                  sed -i "s/^expired: .*/expired: true/" "$file"
+                else
+                  sed -i "/^unpublish_date:/a expired: true" "$file"
+                fi
+                echo "Marked as expired: $file (unpublish_date: $unpublish_date)"
+                changed=true
+              fi
+            fi
+          done
+
+          if [ "$changed" = true ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add content/
+            git commit -m "Auto-mark expired content ($(date -u +%Y-%m-%d))"
+            git push
+          else
+            echo "No content to mark as expired."
+          fi

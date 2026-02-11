@@ -121,15 +121,24 @@ collections:
         name: "title"
         widget: "string"
 
-      - label: "發表日期"
+      - label: "發佈時間"
         name: "date"
         widget: "datetime"
 
-      - label: "截止日期"
-        name: "expiration_date"
+      - label: "預定下架日期"
+        name: "unpublish_date"
         widget: "datetime"
         date_format: "YYYY-MM-DD"
+        time_format: false
         required: false
+        hint: "超過此日期將自動標記為已下架"
+
+      - label: "已下架"
+        name: "expired"
+        widget: "boolean"
+        default: false
+        required: false
+        hint: "超過下架日期會自動標記，也可手動設定"
 
       - label: "類別"
         name: "category"
@@ -168,6 +177,21 @@ collections:
       - label: "發佈時間"
         name: "date"
         widget: "datetime"
+
+      - label: "預定下架日期"
+        name: "unpublish_date"
+        widget: "datetime"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        required: false
+        hint: "超過此日期將自動標記為已下架"
+
+      - label: "已下架"
+        name: "expired"
+        widget: "boolean"
+        default: false
+        required: false
+        hint: "超過下架日期會自動標記，也可手動設定"
 
       - label: "類別"
         name: "category"
@@ -212,6 +236,21 @@ collections:
       - label: "發佈時間"
         name: "date"
         widget: "datetime"
+
+      - label: "預定下架日期"
+        name: "unpublish_date"
+        widget: "datetime"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        required: false
+        hint: "超過此日期將自動標記為已下架"
+
+      - label: "已下架"
+        name: "expired"
+        widget: "boolean"
+        default: false
+        required: false
+        hint: "超過下架日期會自動標記，也可手動設定"
 
       - label: "類別"
         name: "category"
