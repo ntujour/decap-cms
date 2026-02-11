@@ -30,3 +30,10 @@
 - [00:20] CMS 上線測試成功，可透過 GitHub 帳號登入
 - [00:20] 建立 README.md（部署設定、OAuth 設定、使用者管理文件）
 - [00:25] 更新 CLAUDE.md 與 LOG.md
+- [10:30] 修復 GitHub OAuth 登入失敗問題：config.yml 補上 base_url（Netlify OAuth proxy 必要設定）
+- [11:00] 從 Netlify 完全搬遷至 Cloudflare Pages
+- [11:00] 新增 functions/api/auth.js、callback.js（Cloudflare Pages Functions 處理 GitHub OAuth）
+- [11:00] config.yml 改為 base_url: decap-cms.pages.dev + auth_endpoint: /api/auth
+- [11:00] 建立新的 GitHub OAuth App（callback URL 指向 Cloudflare Pages）
+- [11:00] 設定 Cloudflare Pages 環境變數（GITHUB_CLIENT_ID、GITHUB_CLIENT_SECRET）
+- [11:00] CMS 在 Cloudflare Pages 上線測試成功
