@@ -20,6 +20,7 @@ collections:
     create: true
     slug: "{{slug}}"
     identifier_field: "name"
+    summary: "{{category}} | {{name}} | {{title}}"
     sortable_fields: ["name", "category", "order"]
     fields:
       - label: "ID"
