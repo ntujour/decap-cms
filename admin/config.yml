@@ -115,6 +115,7 @@ collections:
     folder: "content/publications"
     create: true
     slug: "{{year}}-{{month}}-{{slug}}"
+    summary: "{{date | date('YYYY-MM-DD')}} | {{title}}"
     sortable_fields: ["title", "date", "category"]
     fields:
       - label: "標題"
@@ -168,6 +169,7 @@ collections:
     folder: "content/news"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{date | date('YYYY-MM-DD')}} | {{title}}"
     sortable_fields: ["title", "date", "category"]
     fields:
       - label: "標題"
@@ -227,6 +229,7 @@ collections:
     folder: "content/activities"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{date | date('YYYY-MM-DD')}} | {{title}}"
     sortable_fields: ["title", "date", "category"]
     fields:
       - label: "活動名稱"
