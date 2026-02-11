@@ -2,6 +2,7 @@ backend:
   name: github
   repo: ntujour/decap-cms
   branch: main
+  base_url: https://monumental-cuchufli-928165.netlify.app
 
 media_folder: "images"
 public_folder: "/images"
