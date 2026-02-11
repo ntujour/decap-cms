@@ -37,3 +37,7 @@
 - [11:00] 建立新的 GitHub OAuth App（callback URL 指向 Cloudflare Pages）
 - [11:00] 設定 Cloudflare Pages 環境變數（GITHUB_CLIENT_ID、GITHUB_CLIENT_SECRET）
 - [11:00] CMS 在 Cloudflare Pages 上線測試成功
+- [11:30] 清理專案根目錄：移除 10 個搬遷暫存檔（含 92MB zip）、過時的 README.md，精簡 .gitignore
+- [12:00] 新增 unpublish_date（預定下架日期）與 expired（已下架）欄位至 news、activities、publications
+- [12:00] 統一 publications 欄位名稱：expiration_date → unpublish_date
+- [12:00] 新增 GitHub Actions workflow（.github/workflows/check-expired.yml）每日自動標記過期內容
